@@ -23,6 +23,18 @@ class UserPanel extends Panel
     /**
      * @inheritdoc
      */
+    public function init()
+    {
+        $isSetUserComponent = !empty(Yii::$app->has('user'));
+        if ($isSetUserComponent || null === Yii::$app->getAuthManager()) {
+            $this->canUsed = false;
+        }
+        parent::init();
+    }
+
+    /**
+     * @inheritdoc
+     */
     public function getName()
     {
         return 'User';

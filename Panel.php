@@ -7,7 +7,6 @@
 
 namespace yii\debug;
 
-use Yii;
 use yii\base\Component;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Url;
@@ -49,6 +48,12 @@ class Panel extends Component
      * See [[\yii\base\Controller::actions()]] for the format.
      */
     public $actions = [];
+
+    /**
+     * @var bool enable or disable panel. Default true;
+     * If false after init, panel will be destroyed and not will used.
+     */
+    public $canUsed = true;
 
 
     /**

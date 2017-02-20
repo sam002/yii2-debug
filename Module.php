@@ -171,7 +171,12 @@ class Module extends \yii\base\Module implements BootstrapInterface
             }
             $config['module'] = $this;
             $config['id'] = $id;
-            $this->panels[$id] = Yii::createObject($config);
+            $panel = Yii::createObject($config);
+            if ($panel->canUsed) {
+                $this->panels[$id] = $panel;
+            } else {
+                unset($this->panels[$id]);
+            }
         }
     }
 
